@@ -1,0 +1,25 @@
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.mlflow/
+mlruns/
+.dvc/cache/
+.pytest_cache/
+.env
+.DS_Store
+
+
+# Python virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# MLflow local database
+mlflow.db
+mlflow.db-journal
+
+# Environment variables
+.env
