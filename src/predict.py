@@ -1,5 +1,7 @@
 
 from pathlib import Path
+from functools import lru_cache
+
 import mlflow.sklearn
 import pandas as pd
 
@@ -15,11 +17,17 @@ FEATURE_NAMES = (
 MODEL_URI = "models:/m-3595d51e65bd49db9b0e93897f00696c"
 SCALER_URI = "models:/m-602c0400632b4fc88be7566237d33041"
 
-model = mlflow.sklearn.load_model(MODEL_URI)
-scaler = mlflow.sklearn.load_model(SCALER_URI)
+
+@lru_cache(maxsize=1)
+def load_models():
+    model = mlflow.sklearn.load_model(MODEL_URI)
+    scaler = mlflow.sklearn.load_model(SCALER_URI)
+    return model, scaler
 
 
 def predict_one(input_data):
+    model, scaler = load_models()
+
     input_df = pd.DataFrame(input_data, columns=FEATURE_NAMES)
 
     input_scaled = scaler.transform(input_df)
