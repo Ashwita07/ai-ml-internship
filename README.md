@@ -44,3 +44,28 @@ python src/inspect_data.py
 This is a starter workspace. The dataset and folders are prepared; the MLflow,
 DVC, API, Docker, CI/CD, and Evidently components will be added incrementally
 as the internship tasks require.
+
+
+## Live Deployment
+
+- **Platform:** Render
+- **API URL:** https://mlops-breast-cancer-api.onrender.com
+- **Swagger Docs:** https://mlops-breast-cancer-api.onrender.com/docs
+- **Docker Hub:** https://hub.docker.com/r/ashwitha07/mlops-breast-cancer-api
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | /health | Checks API health |
+| POST | /predict | Predicts breast cancer classification |
+
+## Technologies Used
+
+- Python
+- Scikit-learn
+- FastAPI
+- MLflow
+- Docker
+- GitHub Actions
+- Render
